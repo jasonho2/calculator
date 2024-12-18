@@ -19,6 +19,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
