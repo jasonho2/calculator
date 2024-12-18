@@ -11,7 +11,12 @@
 
 /* forces flex grid to be 2x2 - display & clear button, digit container & operator container */
 .flexbox-item {
-    flex-basis: calc(35%);
+    flex-basis: calc(45%);
+    text-align: center;
+}
+
+#clear-button {
+    max-width: 80px;
     text-align: center;
 }
 
@@ -23,6 +28,7 @@
     align-content: center;
     align-items: center;
     gap: 10px;
+    flex-basis: 50%;
 }
 
 #operator-container {
