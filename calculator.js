@@ -2,27 +2,15 @@
 function add(a, b) {
     return a + b;
 };
-
 function subtract(a, b) {
     return a - b;
 };
-
 function multiply(a, b) {
     return a * b;
 };
-
 function divide(a, b) {
     return a / b;
 };
-
-// console.log(add(3, 4));
-// console.log(subtract(5, 2));
-// console.log(multiply(4, 5));
-// console.log(divide(6, 4));
-
-// let firstInput = 0;
-// let operator = '';
-// let secondInput = 0;
 
 // function that calls the above 4 functions depending on the operator
 function operate(firstInput, operator, secondInput) {
@@ -44,37 +32,45 @@ function operate(firstInput, operator, secondInput) {
     }
 };
 
-// console.log(operate(3, '+', 5));
-
 // create the body container
 const calculatorContainer = document.createElement("div");
 calculatorContainer.classList.add("container");
 document.body.appendChild(calculatorContainer);
+
+// create the first row container for display and clear button
+const headerContainer = document.createElement("div");
+headerContainer.classList.add("header-container");
+calculatorContainer.appendChild(headerContainer);
 
 // create a display for the entered digits and operators - like a calculator screen
 const calculatorDisplay = document.createElement("div");
 calculatorDisplay.id = "calculator-display";
 calculatorDisplay.classList.add("flexbox-item");
 calculatorDisplay.textContent = "Start calculating!"; // placeholder text
-calculatorContainer.appendChild(calculatorDisplay);
+headerContainer.appendChild(calculatorDisplay);
 
 // create a clear button
 const clearButton = document.createElement("button");
 clearButton.id = "clear-button";
 clearButton.classList.add("flexbox-item");
 clearButton.textContent = "Clear";
-calculatorContainer.appendChild(clearButton);
+headerContainer.appendChild(clearButton);
+
+// create the second row container for digit and operator button containers
+const buttonContainer = document.createElement("div");
+buttonContainer.classList.add("button-container");
+calculatorContainer.appendChild(buttonContainer);
 
 // create separate containers for the digit buttons and operator buttons
 const digitContainer = document.createElement("div");
 digitContainer.id = "digit-container";
 digitContainer.classList.add("flexbox-item");
-calculatorContainer.appendChild(digitContainer);
+buttonContainer.appendChild(digitContainer);
 
 const operatorContainer = document.createElement("div");
 operatorContainer.id = "operator-container";
 operatorContainer.classList.add("flexbox-item");
-calculatorContainer.appendChild(operatorContainer);
+buttonContainer.appendChild(operatorContainer);
 
 // create the calculator buttons
 const calculatorDigits = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);

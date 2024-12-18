@@ -1,23 +1,25 @@
 /* container class for the calculator in the document body */
 .container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
     gap: 10px;
 }
 
-/* forces flex grid to be 2x2 - display & clear button, digit container & operator container */
-.flexbox-item {
-    flex-basis: calc(45%);
-    text-align: center;
+.header-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 10px;
 }
 
-#clear-button {
-    max-width: 80px;
-    text-align: center;
+.button-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 #digit-container {
@@ -28,7 +30,6 @@
     align-content: center;
     align-items: center;
     gap: 10px;
-    flex-basis: 50%;
 }
 
 #operator-container {
