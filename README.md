@@ -1,1 +1,2 @@
 # calculator
+Create an on screen calculator for The Odin Project - calculator project. Basic functions and variable storing while setting up a UI for the calculator are the desired outcomes of this project.
