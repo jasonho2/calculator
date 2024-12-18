@@ -46,7 +46,7 @@ calculatorContainer.appendChild(headerContainer);
 const calculatorDisplay = document.createElement("div");
 calculatorDisplay.id = "calculator-display";
 calculatorDisplay.classList.add("flexbox-item");
-calculatorDisplay.textContent = "Start calculating!"; // placeholder text
+calculatorDisplay.textContent = 0; // placeholder text
 headerContainer.appendChild(calculatorDisplay);
 
 // create a clear button
@@ -97,6 +97,7 @@ digitContainer.addEventListener('click', (event) => {
     // check if the element clicked is a button
     if (event.target.tagName === 'BUTTON'){
         console.log(event.target.textContent); // show the text of the button clicked
+        updateDisplay(event.target.textContent);
     };
 });
 
@@ -105,5 +106,15 @@ operatorContainer.addEventListener('click', (event) => {
     // check if the element clicked is a button
     if (event.target.tagName === 'BUTTON'){
         console.log(event.target.textContent); // show the text of the button clicked
+        updateDisplay(event.target.textContent);
     };
 });
+
+// function for populating display as buttons are clicked
+function updateDisplay(value) {
+    if (calculatorDisplay.textContent === '0') {
+        calculatorDisplay.textContent = value;
+    } else {
+        calculatorDisplay.textContent += value;
+    };
+};
