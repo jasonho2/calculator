@@ -10,8 +10,8 @@
 }
 
 /* forces first div child (input) to be centered and only element on the first row */
-.container>div:first-child {
-    flex: 0 1 100%;
+.flexbox-item {
+    flex-basis: calc(50% - 20px);
     text-align: center;
 }
 
