@@ -45,3 +45,43 @@ function operate(firstInput, operator, secondInput) {
 };
 
 console.log(operate(3, '+', 5));
+
+// create the body container
+const calculatorContainer = document.createElement("div");
+calculatorContainer.classList.add("container");
+document.body.appendChild(calculatorContainer);
+
+// create a display for the entered digits and operators - like a calculator screen
+const calculatorDisplay = document.createElement("div");
+calculatorDisplay.id = "calculator-display";
+calculatorDisplay.textContent = "2 + 2 = 4"; // placeholder text
+calculatorContainer.appendChild(calculatorDisplay);
+
+// create separate containers for the digit buttons and operator buttons
+const digitContainer = document.createElement("div");
+digitContainer.id = "digit-container";
+calculatorContainer.appendChild(digitContainer);
+
+const operatorContainer = document.createElement("div");
+operatorContainer.id = "operator-container";
+calculatorContainer.appendChild(operatorContainer);
+
+// create the calculator buttons
+const calculatorDigits = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
+const calculatorOperators = Array('+', '-', '*', '/', '=');
+
+// append the digit buttons
+for (let i = 0; i < calculatorDigits.length; i++) {
+    const button = document.createElement("button");
+    button.classList.add("calculator-digit-button");
+    button.textContent = calculatorDigits[i];
+    digitContainer.appendChild(button);
+}
+
+// append the operator buttons
+for (let i = 0; i < calculatorOperators.length; i++) {
+    const button = document.createElement("button");
+    button.classList.add("calculator-operator-button");
+    button.textContent = calculatorOperators[i];
+    operatorContainer.appendChild(button);
+}
