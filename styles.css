@@ -9,9 +9,9 @@
     gap: 10px;
 }
 
-/* forces first div child (input) to be centered and only element on the first row */
+/* forces flex grid to be 2x2 - display & clear button, digit container & operator container */
 .flexbox-item {
-    flex-basis: calc(50% - 20px);
+    flex-basis: calc(35%);
     text-align: center;
 }
 
