@@ -15,17 +15,17 @@ function divide(a, b) {
 // function that calls the above 4 functions depending on the operator
 function operate(firstInput, operator, secondInput) {
 
-    eligibleOperators = ['+','-','*','/'];
+    // eligibleOperators = ['+','-','x','/'];
 
-    if (!eligibleOperators.includes(operator)) {
-        alert('Please use an eligible operator: +, -, *, /');
-    }
+    // if (!eligibleOperators.includes(operator)) {
+    //     alert('Please select an eligible operator: +, -, x, /');
+    // }
 
     if (operator === '+') {
         return add(firstInput, secondInput);
     } else if (operator === '-') {
         return subtract(firstInput, secondInput);
-    } else if (operator === '*') {
+    } else if (operator === 'x') {
         return multiply(firstInput, secondInput);
     } else { // divide
         return divide(firstInput, secondInput);
@@ -90,21 +90,39 @@ for (let i = 0; i < calculatorOperators.length; i++) {
     operatorContainer.appendChild(button);
 };
 
+// variables for use to store values and operators
+let firstNumber = '';
+let secondNumber = '';
+let currentOperator = '';
+
 // event listener that shows the digit of the button being pressed
 digitContainer.addEventListener('click', (event) => {
     // check if the element clicked is a button
     if (event.target.tagName === 'BUTTON'){
-        console.log(event.target.textContent); // show the text of the button clicked
         updateDisplay(event.target.textContent);
     };
 });
 
 // event listener that shows the operator of the button being pressed
+// also calls our operate function and updates the values and operators being pressed
 operatorContainer.addEventListener('click', (event) => {
     // check if the element clicked is a button
     if (event.target.tagName === 'BUTTON'){
-        console.log(event.target.textContent); // show the text of the button clicked
         updateDisplay(event.target.textContent);
+        currentOperator = event.target.textContent;
+        console.log(currentOperator);
+        if (event.target.textContent === '+' || event.target.textContent === '-' || event.target.textContent === 'x' || event.target.textContent === '/') { // if an operator was clicked
+            if (firstNumber === '') { // check if the first number has been updated, if not then update
+                firstNumber = updateNumber(calculatorDisplay.textContent);
+                console.log(firstNumber);
+                console.log(currentOperator);
+            }
+        };
+        // update the first number and operator variables
+        // firstNumber = updateNumber(calculatorDisplay.textContent);
+        // console.log(firstNumber);
+        // currentOperator = updateOperator(event.target.textContent);
+        // console.log(currentOperator);
     };
 });
 
@@ -116,3 +134,12 @@ function updateDisplay(value) {
         calculatorDisplay.textContent += value;
     };
 };
+
+// functions to support storing the current values and operator in the display
+function updateNumber(value) {
+    return parseFloat(value);
+};
+
+function updateOperator(value) {
+    return value;
+}
