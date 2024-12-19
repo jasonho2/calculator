@@ -91,12 +91,45 @@ for (let i = 0; i < calculatorOperators.length; i++) {
 };
 
 // variables for use to store values and operators
-let firstNumber = '';
-let secondNumber = '';
+let currentNumber = '';
+let previousNumber = '';
 let currentOperator = '';
 
-// rather than container event listeners, create an event listener when buttons are clicked
+// query selector for all buttons
+const buttons = document.querySelectorAll('button');
 
+// array for mathematical operator buttons
+const eligibleOperators = ['+','-','x','/'];
+
+// rather than container event listeners, create an event listener when buttons are clicked
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (button.textContent === 'Clear') { // if clear is pressed then reset everything
+            firstNumber = '';
+            previousNumber = '';
+            currentOperator = '';
+            calculatorDisplay.textContent = '0';
+        } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the current number to the text content and the current operator to the operator button pressed
+            console.log(button.textContent);
+            currentOperator = button.textContent;
+            updateDisplay(currentOperator);
+            previousNumber = parseFloat(currentNumber);
+            currentNumber = '';
+        } else if (button.textContent === '=') {
+            const result = operate(previousNumber, currentOperator, currentNumber);
+            console.log(result);
+            updateDisplay(button.textContent);
+            updateDisplay(result);
+            previousNumber = result;
+            currentNumber = '';
+        } else { // update the current number input
+            updateDisplay(button.textContent);
+            currentNumber += button.textContent;
+            currentNumber = parseFloat(currentNumber);
+            console.log(currentNumber);
+        }
+    });
+});
 
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
@@ -105,9 +138,11 @@ function updateDisplay(value) {
     } else {
         calculatorDisplay.textContent += value;
     };
+    return value;
 };
 
 // functions to support storing the current values and operator in the display
+// these are not needed
 function updateNumber(value) {
     return parseFloat(value);
 };
