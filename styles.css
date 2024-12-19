@@ -1,19 +1,27 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* container class for the calculator in the document body */
 .container {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
     gap: 10px;
     height: 50vh; /* set viewport height */
-    width: 100vw;
+    max-width: 650px;
+    margin: 50px;
+    text-align: center;
 }
 
 .header-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: flex-end;
     gap: 10px;
 }
 
@@ -36,7 +44,7 @@
     box-sizing: border-box;
 }
 
-#digit-container > :nth-child(10) {
+#digit-container > :nth-child(-1) {
     flex: 1 1 100%; /* Make the last item take the full width */
 }
 
@@ -53,6 +61,6 @@
     box-sizing: border-box;
 }
 
-#operator-container > :nth-child(5) {
+#operator-container > :nth-child(-1) {
     flex: 1 1 100%;
 }
