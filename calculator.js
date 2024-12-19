@@ -1,14 +1,22 @@
 // basic functions add, subtract, multiply, divide
 function add(a, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
     return a + b;
 };
 function subtract(a, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
     return a - b;
 };
 function multiply(a, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
     return a * b;
 };
 function divide(a, b) {
+    a = parseFloat(a);
+    b = parseFloat(b);
     return a / b;
 };
 
@@ -116,15 +124,13 @@ buttons.forEach(button => {
                 calculatorDisplay.textContent = result;
                 previousNumber = result;
                 currentNumber = '';
-            }
-            console.log(button.textContent);
+            };
             currentOperator = button.textContent;
             updateDisplay(currentOperator);
             previousNumber = parseFloat(calculatorDisplay.textContent);
             currentNumber = '';
         } else if (button.textContent === '=') {
             const result = operate(previousNumber, currentOperator, currentNumber);
-            console.log(result);
             updateDisplay(button.textContent);
             updateDisplay(result);
             previousNumber = result;
@@ -133,8 +139,7 @@ buttons.forEach(button => {
             updateDisplay(button.textContent);
             currentNumber += button.textContent;
             currentNumber = parseFloat(currentNumber);
-            console.log(currentNumber);
-        }
+        };
     });
 });
 
