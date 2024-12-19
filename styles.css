@@ -3,7 +3,10 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
+    height: 50vh; /* set viewport height */
 }
 
 .header-container {
@@ -17,28 +20,42 @@
 .button-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 10px;
 }
 
 #digit-container {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    align-items: stretch;
     gap: 10px;
+}
+
+.calculator-digit-button {
+    flex: 1 1 calc(30%); /* 30% width */
+    box-sizing: border-box;
+}
+
+#digit-container > :nth-child(10) {
+    flex: 1 1 100%; /* Make the last item take the full width */
 }
 
 #operator-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
     gap: 10px;
+}
+
+/**/
+.calculator-operator-button {
+    flex: 1 1 calc(15%);
+    box-sizing: border-box;
+}
+
+#operator-container > :nth-child(5) {
+    flex: 1 1 100%;
 }

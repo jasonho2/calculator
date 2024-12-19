@@ -74,13 +74,14 @@ buttonContainer.appendChild(operatorContainer);
 
 // create the calculator buttons
 const calculatorDigits = Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
-const calculatorOperators = Array('+', '-', '*', '/', '=');
+const calculatorOperators = Array('+', '-', 'x', '/', '=');
 
 // append the digit buttons
 for (let i = 0; i < calculatorDigits.length; i++) {
     const button = document.createElement("button");
     button.classList.add("calculator-digit-button");
     button.textContent = calculatorDigits[i];
+    button.id = `digit${calculatorDigits[i]}`;
     digitContainer.appendChild(button);
 };
 
@@ -89,6 +90,7 @@ for (let i = 0; i < calculatorOperators.length; i++) {
     const button = document.createElement("button");
     button.classList.add("calculator-operator-button");
     button.textContent = calculatorOperators[i];
+    button.id = `operator${calculatorOperators[i]}`;
     operatorContainer.appendChild(button);
 };
 
