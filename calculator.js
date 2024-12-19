@@ -110,10 +110,17 @@ buttons.forEach(button => {
             currentOperator = '';
             calculatorDisplay.textContent = '0';
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the current number to the text content and the current operator to the operator button pressed
+            // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
+            if (previousNumber && currentOperator && currentNumber) {
+                const result = operate(previousNumber, currentOperator, currentNumber);
+                calculatorDisplay.textContent = result;
+                previousNumber = result;
+                currentNumber = '';
+            }
             console.log(button.textContent);
             currentOperator = button.textContent;
             updateDisplay(currentOperator);
-            previousNumber = parseFloat(currentNumber);
+            previousNumber = parseFloat(calculatorDisplay.textContent);
             currentNumber = '';
         } else if (button.textContent === '=') {
             const result = operate(previousNumber, currentOperator, currentNumber);
