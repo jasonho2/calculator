@@ -44,15 +44,13 @@ calculatorContainer.appendChild(headerContainer);
 
 // create a display for the entered digits and operators - like a calculator screen
 const calculatorDisplay = document.createElement("div");
-calculatorDisplay.id = "calculator-display";
-calculatorDisplay.classList.add("flexbox-item");
+calculatorDisplay.classList.add("calculator-display");
 calculatorDisplay.textContent = 0; // placeholder text
 headerContainer.appendChild(calculatorDisplay);
 
 // create a clear button
 const clearButton = document.createElement("button");
-clearButton.id = "clear-button";
-clearButton.classList.add("flexbox-item");
+clearButton.classList.add("clear-button");
 clearButton.textContent = "Clear";
 headerContainer.appendChild(clearButton);
 
@@ -64,12 +62,10 @@ calculatorContainer.appendChild(buttonContainer);
 // create separate containers for the digit buttons and operator buttons
 const digitContainer = document.createElement("div");
 digitContainer.id = "digit-container";
-digitContainer.classList.add("flexbox-item");
 buttonContainer.appendChild(digitContainer);
 
 const operatorContainer = document.createElement("div");
 operatorContainer.id = "operator-container";
-operatorContainer.classList.add("flexbox-item");
 buttonContainer.appendChild(operatorContainer);
 
 // create the calculator buttons
