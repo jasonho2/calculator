@@ -95,36 +95,8 @@ let firstNumber = '';
 let secondNumber = '';
 let currentOperator = '';
 
-// event listener that shows the digit of the button being pressed
-digitContainer.addEventListener('click', (event) => {
-    // check if the element clicked is a button
-    if (event.target.tagName === 'BUTTON'){
-        updateDisplay(event.target.textContent);
-    };
-});
+// rather than container event listeners, create an event listener when buttons are clicked
 
-// event listener that shows the operator of the button being pressed
-// also calls our operate function and updates the values and operators being pressed
-operatorContainer.addEventListener('click', (event) => {
-    // check if the element clicked is a button
-    if (event.target.tagName === 'BUTTON'){
-        updateDisplay(event.target.textContent);
-        currentOperator = event.target.textContent;
-        console.log(currentOperator);
-        if (event.target.textContent === '+' || event.target.textContent === '-' || event.target.textContent === 'x' || event.target.textContent === '/') { // if an operator was clicked
-            if (firstNumber === '') { // check if the first number has been updated, if not then update
-                firstNumber = updateNumber(calculatorDisplay.textContent);
-                console.log(firstNumber);
-                console.log(currentOperator);
-            }
-        };
-        // update the first number and operator variables
-        // firstNumber = updateNumber(calculatorDisplay.textContent);
-        // console.log(firstNumber);
-        // currentOperator = updateOperator(event.target.textContent);
-        // console.log(currentOperator);
-    };
-});
 
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
