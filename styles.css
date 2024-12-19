@@ -7,20 +7,19 @@
     align-items: center;
     gap: 10px;
     height: 50vh; /* set viewport height */
+    width: 100vw;
 }
 
 .header-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
     gap: 10px;
 }
 
 .button-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
 }
@@ -43,16 +42,14 @@
 
 #operator-container {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: stretch;
     gap: 10px;
 }
 
 /**/
 .calculator-operator-button {
-    flex: 1 1 calc(15%);
+    flex: 1 1 calc(40%);
     box-sizing: border-box;
 }
 
