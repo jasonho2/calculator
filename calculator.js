@@ -117,7 +117,7 @@ buttons.forEach(button => {
             previousNumber = '';
             currentOperator = '';
             calculatorDisplay.textContent = '0';
-            console.log('0');
+            // console.log('0');
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
             // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
             if (previousNumber && currentOperator && currentNumber) {
@@ -125,25 +125,29 @@ buttons.forEach(button => {
                 calculatorDisplay.textContent = result;
                 previousNumber = result;
                 currentNumber = '';
-                console.log('a');
+                // console.log('a');
             };
             currentOperator = button.textContent;
             updateDisplay(currentOperator);
             previousNumber = parseFloat(calculatorDisplay.textContent);
             currentNumber = '';
-            console.log('b');
+            // console.log('b');
         } else if (button.textContent === '=') {
-            const result = operate(previousNumber, currentOperator, currentNumber);
-            calculatorDisplay.textContent = result;
-            previousNumber = result;
-            console.log('c');
-            currentNumber = '';
-            currentOperator = '';
+            if (!currentNumber) {
+                alert("Please finish the equation: second number not provided");
+            } else {
+                const result = operate(previousNumber, currentOperator, currentNumber);
+                calculatorDisplay.textContent = result;
+                previousNumber = result;
+                // console.log('c');
+                currentNumber = '';
+                currentOperator = '';
+            };
         } else { // update the current number input
             currentNumber += button.textContent;
             updateDisplay(button.textContent);
             currentNumber = parseFloat(currentNumber);
-            console.log('d');
+            // console.log('d');
         };
     });
 });
