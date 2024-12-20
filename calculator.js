@@ -113,32 +113,38 @@ const eligibleOperators = ['+','-','x','/'];
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         if (button.textContent === 'Clear') { // if clear is pressed then reset everything
-            firstNumber = '';
+            currentNumber = '';
             previousNumber = '';
             currentOperator = '';
             calculatorDisplay.textContent = '0';
-        } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the current number to the text content and the current operator to the operator button pressed
+            console.log('0');
+        } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
             // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
             if (previousNumber && currentOperator && currentNumber) {
                 const result = operate(previousNumber, currentOperator, currentNumber);
                 calculatorDisplay.textContent = result;
                 previousNumber = result;
                 currentNumber = '';
+                console.log('a');
             };
             currentOperator = button.textContent;
             updateDisplay(currentOperator);
             previousNumber = parseFloat(calculatorDisplay.textContent);
             currentNumber = '';
+            console.log('b');
         } else if (button.textContent === '=') {
             const result = operate(previousNumber, currentOperator, currentNumber);
             updateDisplay(button.textContent);
             updateDisplay(result);
             previousNumber = result;
-            currentNumber = '';
+            console.log('c');
+            // currentNumber = '';
+            //currentOperator = '';
         } else { // update the current number input
-            updateDisplay(button.textContent);
             currentNumber += button.textContent;
+            updateDisplay(button.textContent);
             currentNumber = parseFloat(currentNumber);
+            console.log('d');
         };
     });
 });
@@ -152,13 +158,3 @@ function updateDisplay(value) {
     };
     return value;
 };
-
-// functions to support storing the current values and operator in the display
-// these are not needed
-function updateNumber(value) {
-    return parseFloat(value);
-};
-
-function updateOperator(value) {
-    return value;
-}
