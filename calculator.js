@@ -134,12 +134,11 @@ buttons.forEach(button => {
             console.log('b');
         } else if (button.textContent === '=') {
             const result = operate(previousNumber, currentOperator, currentNumber);
-            updateDisplay(button.textContent);
-            updateDisplay(result);
+            calculatorDisplay.textContent = result;
             previousNumber = result;
             console.log('c');
-            // currentNumber = '';
-            //currentOperator = '';
+            currentNumber = '';
+            currentOperator = '';
         } else { // update the current number input
             currentNumber += button.textContent;
             updateDisplay(button.textContent);
