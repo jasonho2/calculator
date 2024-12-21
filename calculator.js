@@ -39,7 +39,7 @@ function operate(firstInput, operator, secondInput) {
         return divide(firstInput, secondInput);
     }
 };
-
+/*
 // create the body container
 const calculatorContainer = document.createElement("div");
 calculatorContainer.classList.add("container");
@@ -97,14 +97,16 @@ for (let i = 0; i < calculatorOperators.length; i++) {
     button.id = `operator${calculatorOperators[i]}`;
     operatorContainer.appendChild(button);
 };
+*/
 
 // variables for use to store values and operators
 let currentNumber = '';
 let previousNumber = '';
 let currentOperator = '';
 
-// query selector for all buttons
+// query selector for all buttons and the display
 const buttons = document.querySelectorAll('button');
+const display = document.getElementById('display');
 
 // array for mathematical operator buttons
 const eligibleOperators = ['+','-','x','/'];
@@ -112,24 +114,24 @@ const eligibleOperators = ['+','-','x','/'];
 // rather than container event listeners, create an event listener when buttons are clicked
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        if (button.textContent === 'Clear') { // if clear is pressed then reset everything
+        if (button.textContent === 'C') { // if clear is pressed then reset everything
             currentNumber = '';
             previousNumber = '';
             currentOperator = '';
-            calculatorDisplay.textContent = '0';
+            display.textContent = '0';
             // console.log('0');
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
             // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
             if (previousNumber && currentOperator && currentNumber) {
                 const result = operate(previousNumber, currentOperator, currentNumber);
-                calculatorDisplay.textContent = result;
+                display.textContent = result;
                 previousNumber = result;
                 currentNumber = '';
                 // console.log('a');
             };
             currentOperator = button.textContent;
             updateDisplay(currentOperator);
-            previousNumber = parseFloat(calculatorDisplay.textContent);
+            previousNumber = parseFloat(display.textContent);
             currentNumber = '';
             // console.log('b');
         } else if (button.textContent === '=') {
@@ -137,7 +139,7 @@ buttons.forEach(button => {
                 alert("Please finish the equation: second number not provided");
             } else {
                 const result = operate(previousNumber, currentOperator, currentNumber);
-                calculatorDisplay.textContent = result;
+                display.textContent = result;
                 previousNumber = result;
                 // console.log('c');
                 currentNumber = '';
@@ -154,10 +156,10 @@ buttons.forEach(button => {
 
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
-    if (calculatorDisplay.textContent === '0') {
-        calculatorDisplay.textContent = value;
+    if (display.textContent === '0') {
+        display.textContent = value;
     } else {
-        calculatorDisplay.textContent += value;
+        display.textContent += value;
     };
     return value;
 };

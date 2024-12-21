@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 10px;
+    /* gap: 10px; */
     height: 50vh; /* set viewport height */
     max-width: 650px;
     margin: 50px;
@@ -22,45 +22,74 @@ body {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 .button-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
+    align-items: stretch;
+    /* justify-content: space-between; */
+    /* gap: 10px; */ 
 }
 
-#digit-container {
+/* */
+.digit-container {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
-.calculator-digit-button {
-    flex: 1 1 calc(30%); /* 30% width */
+/* single size buttons (square) */
+.calculator-single-button {
+    flex: 1 1 calc(20%); /* 20% width */
     box-sizing: border-box;
 }
 
-#digit-container > :nth-child(-1) {
-    flex: 1 1 100%; /* Make the last item take the full width */
+/* double size buttons (rectangle) */
+.calculator-double-button {
+    flex: 1 1 calc(40%); /* 40% width */
+    box-sizing: border-box;
 }
 
-#operator-container {
+/*
+.digit-container > :nth-child(-1) {
+    flex: 1 1 100%; /* Make the last item take the full width
+}
+*/
+
+.operator-container {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    gap: 10px;
+    /* gap: 10px; */
 }
 
 /**/
-.calculator-operator-button {
-    flex: 1 1 calc(40%);
+#calculator-operator-button {
     box-sizing: border-box;
 }
 
-#operator-container > :nth-child(-1) {
+#clear-button {
+    box-sizing: border-box;
+}
+
+#plus-minus-button {
+    box-sizing: border-box;
+}
+
+#decimal-button {
+    box-sizing: border-box;
+}
+
+#equal-button {
+    box-sizing: border-box;
+}
+
+/*
+.operator-container > :nth-child(-1) {
     flex: 1 1 100%;
 }
+*/
