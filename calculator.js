@@ -128,6 +128,12 @@ buttons.forEach(button => {
 
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
 
+            // if no previous number entry, set to 0
+            if (display.textContent === '') {
+                previousNumber = 0;
+                updateDisplay(0);
+            };
+
             // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
             if (previousNumber && currentOperator && currentNumber) {
                 const result = operate(previousNumber, currentOperator, currentNumber);
