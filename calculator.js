@@ -90,6 +90,12 @@ buttons.forEach(button => {
             if (eligibleOperators.includes(display.textContent.charAt(display.textContent.length - 1))) {
                 currentOperator = button.textContent;
                 display.textContent = display.textContent.slice(0, -1) + currentOperator;
+            } else if (currentNumber === 0) { // checking for currentNumber === 0, continue operation regardless of next inputs
+                const result = operate(previousNumber, currentOperator, currentNumber);
+                display.textContent = result;
+                updateDisplay(currentOperator);
+                previousNumber = result;
+                currentNumber = '';
             } else {
                 currentOperator = button.textContent;
                 updateDisplay(currentOperator);
