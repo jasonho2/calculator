@@ -114,12 +114,18 @@ const eligibleOperators = ['+','-','x','/'];
 // rather than container event listeners, create an event listener when buttons are clicked
 buttons.forEach(button => {
     button.addEventListener('click', () => {
+
+        // data value of the button
+        const value = button.getAttribute('data-value');
+        // console.log(value);
+
         if (button.textContent === 'C') { // if clear is pressed then reset everything
             currentNumber = '';
             previousNumber = '';
             currentOperator = '';
             display.textContent = '0';
             // console.log('0');
+
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
             // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
             if (previousNumber && currentOperator && currentNumber) {
@@ -134,6 +140,7 @@ buttons.forEach(button => {
             previousNumber = parseFloat(display.textContent);
             currentNumber = '';
             // console.log('b');
+
         } else if (button.textContent === '=') {
             if (!currentNumber) {
                 alert("Please finish the equation: second number not provided");
@@ -145,12 +152,14 @@ buttons.forEach(button => {
                 currentNumber = '';
                 currentOperator = '';
             };
+
         } else { // update the current number input
             currentNumber += button.textContent;
             updateDisplay(button.textContent);
             currentNumber = parseFloat(currentNumber);
             // console.log('d');
         };
+        
     });
 });
 
