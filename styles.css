@@ -2,6 +2,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+button {
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 2em;
 }
 
 /* container class for the calculator in the document body */
@@ -15,6 +23,7 @@ body {
     max-width: 650px;
     margin: 50px;
     text-align: center;
+    background-color: rgb(17, 20, 20);
 }
 
 .header-container {
@@ -26,7 +35,9 @@ body {
 }
 
 .display {
-    height: 18.5px;
+    font-size: 2em;
+    height: 30px;
+    color: white;
 }
 
 .button-container {
@@ -50,12 +61,16 @@ body {
 .calculator-single-button {
     flex: 1 1 calc(20%); /* 20% width */
     box-sizing: border-box;
+    color: white;
+    background-color: rgb(17, 20, 20);
 }
 
 /* double size buttons (rectangle) */
 .calculator-double-button {
     flex: 1 1 calc(40%); /* 40% width */
     box-sizing: border-box;
+    color: white;
+    background-color: rgb(17, 20, 20);
 }
 
 /*
@@ -71,17 +86,19 @@ body {
     /* gap: 10px; */
 }
 
-/**/
 #calculator-operator-button {
     box-sizing: border-box;
+    background-color: orange;
 }
 
 #clear-button {
     box-sizing: border-box;
+    background-color: grey;
 }
 
 #plus-minus-button {
     box-sizing: border-box;
+    background-color: grey;
 }
 
 #decimal-button {
@@ -90,10 +107,6 @@ body {
 
 #equal-button {
     box-sizing: border-box;
+    background-color: orange;
 }
 
-/*
-.operator-container > :nth-child(-1) {
-    flex: 1 1 100%;
-}
-*/
