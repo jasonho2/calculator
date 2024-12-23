@@ -127,6 +127,19 @@ buttons.forEach(button => {
             // console.log('0');
 
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
+
+            // check if there is already an operator in place. replace with the most recent click
+            if (currentOperator) {
+                currentOperator = button.textContent;
+                display.textContent = display.textContent.slice(0, -1) + currentOperator;
+            } else {
+                currentOperator = button.textContent;
+                updateDisplay(currentOperator);
+                previousNumber = parseFloat(display.textContent);
+                currentNumber = '';
+                // console.log('b');
+            };
+
             // check if a pair of numbers and operator exists. evaluate this equation first before proceeding with more calculations
             if (previousNumber && currentOperator && currentNumber) {
                 const result = operate(previousNumber, currentOperator, currentNumber);
@@ -135,11 +148,6 @@ buttons.forEach(button => {
                 currentNumber = '';
                 // console.log('a');
             };
-            currentOperator = button.textContent;
-            updateDisplay(currentOperator);
-            previousNumber = parseFloat(display.textContent);
-            currentNumber = '';
-            // console.log('b');
 
         } else if (button.textContent === '=') {
             if (!currentNumber) {
