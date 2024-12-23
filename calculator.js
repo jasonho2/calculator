@@ -182,7 +182,7 @@ buttons.forEach(button => {
 
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
-    if (display.textContent === '0') {
+    if (display.textContent === '00') {
         display.textContent = value;
     } else {
         display.textContent += value;
