@@ -2,17 +2,17 @@
 function add(a, b) {
     a = parseFloat(a);
     b = parseFloat(b);
-    return a + b;
+    return Math.round((a + b) * 10000) / 10000;
 };
 function subtract(a, b) {
     a = parseFloat(a);
     b = parseFloat(b);
-    return a - b;
+    return Math.round((a - b) * 10000) / 10000;
 };
 function multiply(a, b) {
     a = parseFloat(a);
     b = parseFloat(b);
-    return a * b;
+    return Math.round((a * b) * 10000) / 10000;
 };
 function divide(a, b) {
     a = parseFloat(a);
@@ -21,7 +21,7 @@ function divide(a, b) {
     if (b === 0 || b === '') {
         return 'lmao';
     } else {
-        return a / b;
+        return Math.round((a / b) * 10000) / 10000;
     };
 };
 
@@ -68,7 +68,7 @@ buttons.forEach(button => {
             currentNumber = '';
             previousNumber = '';
             currentOperator = '';
-            display.textContent = '0';
+            display.textContent = '';
 
         } else if (eligibleOperators.includes(button.textContent)) { // if a mathematical operator was clicked then set the previous number to the text content and the current operator to the operator button pressed
 
