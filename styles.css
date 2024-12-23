@@ -10,6 +10,7 @@ button {
     font-weight: bold;
     font-family: monospace;
     font-size: 2em;
+    height: 70px;
 }
 
 /* container class for the calculator in the document body */
@@ -18,12 +19,14 @@ button {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    /* gap: 10px; */
-    height: 50vh; /* set viewport height */
-    max-width: 650px;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 320px;
     margin: 50px;
     text-align: center;
-    background-color: rgb(17, 20, 20);
+    background-color: black;
+    border: 10px solid;
+    border-color: rgb(34, 38, 38);
 }
 
 .header-container {
@@ -31,12 +34,15 @@ button {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
+    border: 5px solid;
+    background-color: rgb(54, 54, 54);
     /* gap: 10px; */
 }
 
 .display {
-    font-size: 2em;
-    height: 30px;
+    font-size: 44px;
+    padding: 8px;
+    height: 50px;
     color: white;
 }
 
@@ -45,68 +51,37 @@ button {
     flex-wrap: wrap;
     flex-direction: row;
     align-items: stretch;
-    /* justify-content: space-between; */
-    /* gap: 10px; */ 
-}
-
-/* */
-.digit-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    /* gap: 10px; */
 }
 
 /* single size buttons (square) */
 .calculator-single-button {
     flex: 1 1 calc(20%); /* 20% width */
-    box-sizing: border-box;
     color: white;
-    background-color: rgb(17, 20, 20);
+    background-color: black;
+    border-radius: 12px;
 }
 
 /* double size buttons (rectangle) */
 .calculator-double-button {
     flex: 1 1 calc(40%); /* 40% width */
-    box-sizing: border-box;
     color: white;
-    background-color: rgb(17, 20, 20);
-}
-
-/*
-.digit-container > :nth-child(-1) {
-    flex: 1 1 100%; /* Make the last item take the full width
-}
-*/
-
-.operator-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    /* gap: 10px; */
+    background-color: black;
+    border-radius: 12px;
 }
 
 #calculator-operator-button {
-    box-sizing: border-box;
     background-color: orange;
 }
 
 #clear-button {
-    box-sizing: border-box;
     background-color: grey;
 }
 
 #plus-minus-button {
-    box-sizing: border-box;
     background-color: grey;
 }
 
-#decimal-button {
-    box-sizing: border-box;
-}
-
 #equal-button {
-    box-sizing: border-box;
     background-color: orange;
 }
 
