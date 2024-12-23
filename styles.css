@@ -25,6 +25,10 @@ body {
     /* gap: 10px; */
 }
 
+.display {
+    height: 18.5px;
+}
+
 .button-container {
     display: flex;
     flex-wrap: wrap;

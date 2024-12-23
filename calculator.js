@@ -139,7 +139,7 @@ buttons.forEach(button => {
 
             // check if the most recent button entry was an operator. replace with the most recent click
             if (eligibleOperators.includes(display.textContent.charAt(display.textContent.length - 1))) {
-                console.log('you are here');
+                // console.log('you are here');
                 currentOperator = button.textContent;
                 display.textContent = display.textContent.slice(0, -1) + currentOperator;
             } else {
@@ -182,7 +182,7 @@ buttons.forEach(button => {
 
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
-    if (display.textContent === '00') {
+    if (display.textContent === '') {
         display.textContent = value;
     } else {
         display.textContent += value;
