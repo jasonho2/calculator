@@ -4,4 +4,3 @@ Create an on screen calculator for The Odin Project - calculator project. Basic 
 Next steps:
 - add a way to disable decimal button if there is a decimal in the current input number. 
 - add keyboard support.
-- add a backspace button

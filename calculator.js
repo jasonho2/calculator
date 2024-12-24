@@ -131,6 +131,16 @@ buttons.forEach(button => {
     });
 });
 
+// event listener for backspace key
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Backspace') {
+        if (String(currentNumber).length > 0) {
+            currentNumber = String(currentNumber).slice(0, -1); // Remove the last character
+            display.textContent = currentNumber || '0'; // Update display or show '0' if empty
+        }
+    }
+});
+
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
     if (display.textContent === '') {
