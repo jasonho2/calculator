@@ -141,6 +141,42 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// event listener for keyboard number support
+document.addEventListener('keydown', (e) => {
+    const value = e.key;
+    const button = document.querySelector(`button[data-value="${value}"]`);
+    const dataValue = button.getAttribute('data-value');
+    console.log(dataValue);
+    if (button) {
+        button.click(); // simulate a button click
+    };
+});
+
+// event listener for the enter key for equals
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Enter') {
+        if (currentNumber === '') {
+            alert("Please finish the equation: second number not provided");
+        } else {
+            const result = operate(previousNumber, currentOperator, currentNumber);
+            display.textContent = result;
+            previousNumber = result;
+            currentNumber = '';
+            currentOperator = '';
+        };
+    };
+});
+
+// event listener for backspace key for clear
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Escape') {
+        currentNumber = '';
+        previousNumber = '';
+        currentOperator = '';
+        display.textContent = '';
+    };
+});
+
 // function for populating display as buttons are clicked
 function updateDisplay(value) {
     if (display.textContent === '') {
